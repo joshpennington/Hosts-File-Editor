@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OCaff.Framework</name>
+    </assembly>
+    <members>
+        <member name="T:OCaff.Framework.Extensions.NumericHelper">
+            <summary>
+            Helper/extension class for added <see cref="T:System.Int32"/> functionality.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.Extensions.NumericHelper.Compare(System.Int32,System.Int32)">
+            <summary>
+            Compares the value to specified value.
+            </summary>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OCaff.Framework.Extensions.NumericHelper.Between(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Determines whether the value is between the minimum and maximum value.
+            </summary>
+            <param name="value"></param>
+            <param name="minimumValue"></param>
+            <param name="maximumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OCaff.Framework.Extensions.NumericHelper.Minimum(System.Int32,System.Int32)">
+            <summary>
+            Returns the value or the minimum whichever is greater.
+            </summary>
+            <param name="value"></param>
+            <param name="minimumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OCaff.Framework.Extensions.NumericHelper.Maximum(System.Int32,System.Int32)">
+            <summary>
+            Returns the value or the maximum value whichever is less.
+            </summary>
+            <param name="value"></param>
+            <param name="maximumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:OCaff.Framework.Extensions.NumericHelper.Minimum(System.Double,System.Double)">
+            <summary>
+            Returns the value or the minimum whichever is greater.
+            </summary>
+            <param name="value"></param>
+            <param name="minimumValue"></param>
+            <returns></returns>
+        </member>
+        <member name="T:OCaff.Framework.FormBase">
+            <summary>
+            Sets up some default behavior of a dialog usage in our framework.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.FormBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OCaff.Framework.FormBase"/> class.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.FormBase.PublishingCompleted">
+            <summary>
+            Handles any changes necessary when the controller has finished publishing to the view.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.FormBase.InitializeResources">
+            <summary>
+            Initializes the form resources.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.FormBase.Initialize">
+            <summary>
+            Initializes the form controls and resources.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.FormBase.StartPosition">
+            <summary>
+            Gets the starting position of the dialog at runtime.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.FormBase.FormBorderStyle">
+            <summary>
+            Gets or sets the border style of the dialog.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.FormBase.ShowIcon">
+            <summary>
+            Gets a value indicating whether an icon is displayed in the caption bar of the form.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.FormBase.ControlBox">
+            <summary>
+            Gets a value indicating whether a control box is displayed in the caption bar of the form.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.FormBase.Opacity">
+            <summary>
+            Gets the opacity level of the form.
+            </summary>
+        </member>
+        <member name="T:OCaff.Framework.DialogBase">
+            <summary>
+            Sets up some default behavior of a dialog usage in our framework.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:OCaff.Framework.DialogBase"/> class.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.PublishingCompleted">
+            <summary>
+            Handles finalizing the form's enabled and visible controls.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.InitializeResources">
+            <summary>
+            Initializes the form resources.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.Initialize">
+            <summary>
+            Initializes the form controls and resources.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.Accept">
+            <summary>
+            Closes with a <see cref="F:System.Windows.Forms.DialogResult.OK"/>.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.Cancel">
+            <summary>
+            Closes with a <see cref="F:System.Windows.Forms.DialogResult.Cancel"/>.
+            </summary>
+        </member>
+        <member name="M:OCaff.Framework.DialogBase.Retry">
+            <summary>
+            Closes with a <see cref="F:System.Windows.Forms.DialogResult.Retry"/>.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.StartPosition">
+            <summary>
+            Gets or sets the starting position of the dialog at run time.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.FormBorderStyle">
+            <summary>
+            Gets or sets the border style of the dialog.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.WindowState">
+            <summary>
+            Gets the dialogs window state.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.ShowIcon">
+            <summary>
+            Gets a value indicating whether an icon is displayed in the caption bar of the dialog.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.MaximizeBox">
+            <summary>
+            Gets a value indicating whether the Maximize button is display in the caption bar of the form.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.MinimizeBox">
+            <summary>
+            Gets a value indicating whether the Minimize button is display in the caption bar of the form.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.ShowInTaskbar">
+            <summary>
+            Gets a value indicating whether the dialog is displayed in the Windows taskbar.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.ControlBox">
+            <summary>
+            Gets a value indicating whether a control box is displayed in the caption bar of the form.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.IsMdiContainer">
+            <summary>
+            Gets a value indicating whether the form is a container for multiple-document interface (MDI) child forms.
+            </summary>
+        </member>
+        <member name="P:OCaff.Framework.DialogBase.Opacity">
+            <summary>
+            Gets the opacity level of the form.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,3145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E9C20F2-CD90-48B7-82EA-06DA620A2CF9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HostsFileEditor</RootNamespace>
+    <AssemblyName>HostsFileEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\HostsFileEditor.XML</DocumentationFile>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Coffee.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>HostsFileEditor.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormFactory.cs" />
+    <Compile Include="Forms\Main\HostFileModel.cs" />
+    <Compile Include="Forms\Main\IHostFileModel.cs" />
+    <Compile Include="Forms\Main\MainController.cs" />
+    <Compile Include="Forms\Main\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\HostEntryDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\HostEntryDialog.Designer.cs">
+      <DependentUpon>HostEntryDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MessageBoxFactory.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Dialogs\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Main\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\HostEntryDialog.resx">
+      <DependentUpon>HostEntryDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Resources\Icons\Icons.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\anchor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_cascade.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_double.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_form_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_form_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_form_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_form_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_osx.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_osx_terminal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_side_boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_side_contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_side_expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_side_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_side_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_split.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_tile_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_tile_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_view_columns.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_view_detail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_view_gallery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_view_icons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_view_list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_view_tile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_xp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\application_xp_terminal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_branch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_divide.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_inout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_join.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_merge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_refresh_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_rotate_anticlockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_rotate_clockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_switch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_turn_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_turn_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\asterisk_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\asterisk_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_bronze_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_bronze_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_bronze_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_gold_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_gold_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_gold_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_silver_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_silver_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\award_star_silver_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\basket_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bell_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bell_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bell_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bell_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bell_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bin_closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bin_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bomb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_addresses.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\book_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\brick_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bricks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\briefcase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bug_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\building_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_arrow_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_arrow_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_arrow_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_toggle_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_toggle_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\bullet_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cake.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calculator_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calculator_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calculator_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calculator_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calculator_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_view_day.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_view_month.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\calendar_view_week.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\camera_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\car_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\car_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cart_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd_burn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd_eject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cd_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_bar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_bar_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_bar_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_bar_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_bar_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_bar_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_curve_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_line_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_line_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_line_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_line_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_line_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_organisation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_organisation_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_organisation_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_pie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_pie_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_pie_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_pie_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_pie_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\chart_pie_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\clock_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cog_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cog_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cog_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cog_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cog_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\coins_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\coins_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\color_swatch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\color_wheel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comment_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comment_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comment_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comments.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comments_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\comments_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\compress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\computer_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\contrast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\contrast_decrease.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\contrast_high.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\contrast_increase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\contrast_low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_eject.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_eject_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_end.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_end_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_equalizer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_equalizer_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_fastforward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_fastforward_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_pause_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_play_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_repeat_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_rewind.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_rewind_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_start_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\control_stop_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\controller.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\controller_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\controller_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\controller_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\creditcards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cross.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\css.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\css_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\css_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\css_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\css_valid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cup_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cursor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\cut_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\database_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\date_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\disk_multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\door.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\door_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\door_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\door_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drink_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_burn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_cd_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_network.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\drive_web.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\dvd_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\email_open_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_evilgrin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_grin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_happy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_smile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_surprised.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_tongue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_unhappy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_waii.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\emoticon_wink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\error_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\error_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\error_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\exclamation.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\feed_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\film_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\flag_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_bell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_brick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_explore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_feed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_lightbulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_page_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\folder_wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\font_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\font_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\font_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\group_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\heart_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\heart_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\hourglass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\hourglass_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\hourglass_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\hourglass_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\hourglass_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\house.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\house_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\house_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\html.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\html_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\html_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\html_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\html_valid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\image_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\image_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\image_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\image_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ipod.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ipod_cast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ipod_cast_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ipod_cast_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ipod_sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\joystick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\joystick_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\joystick_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\joystick_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\key_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\key_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\key_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\keyboard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\keyboard_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\keyboard_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\keyboard_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_content.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_header.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\layout_sidebar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightbulb.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightbulb_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightbulb_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightbulb_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightning_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightning_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lightning_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\link_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock_break.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lock_open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry_flatbed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\lorry_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\magifier_zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\magnifier_zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\map_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\map_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\map_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\map_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\map_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_bronze_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_bronze_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_bronze_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_bronze_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_bronze_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_gold_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_gold_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_gold_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_gold_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_gold_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_silver_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_silver_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_silver_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_silver_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\medal_silver_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money_dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money_euro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money_pound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\money_yen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\monitor_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\mouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\mouse_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\mouse_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\mouse_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\music.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\newspaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\newspaper_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\newspaper_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\newspaper_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\newspaper_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\note.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\note_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\note_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\note_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\note_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\note_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\overlays.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\package.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\package_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\package_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\package_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\package_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\package_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_attach.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_paintbrush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_acrobat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_actionscript.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_c.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_camera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_cd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_code_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_coldfusion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_compressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_cplusplus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_csharp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_cup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_dvd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_excel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_freehand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_medal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_office.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_paint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_paintbrush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_php.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_powerpoint.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_ruby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_stack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_swoosh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_text_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_tux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_visualstudio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_width.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_world.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_white_zip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\page_world.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\paintbrush.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\paintcan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\paste_plain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\paste_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pencil_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pencil_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pencil_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\phone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\phone_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\phone_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\phone_sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\photo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\photo_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\photo_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\photo_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\photos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\picture_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pictures.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pilcrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pill_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pill_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\pill_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\plugin_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\printer_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\printer_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\printer_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\printer_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rainbow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_disk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_magnify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\report_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_first.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_previous.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rosette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rss_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rss_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rss_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\rss_valid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_get.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\ruby_put.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_code_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_palette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\script_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_chart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_compressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\server_uncompressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_align_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_align_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_align_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_align_middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_align_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_align_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_flip_horizontal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_flip_vertical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_group.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_handles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_move_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_move_backwards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_move_forwards.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_move_front.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_rotate_anticlockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_rotate_clockwise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_square_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shape_ungroup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shield_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shield_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\shield_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sitemap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sitemap_color.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sound_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sound_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sound_low.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sound_mute.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sound_none.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\spellcheck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_8ball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_basketball.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_football.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_golf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_raquet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_shuttlecock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_soccer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sport_tennis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\status_away.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\status_busy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\status_offline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\status_online.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\style.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\style_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\style_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\style_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\style_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\sum.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tab_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tab_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tab_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tab_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_gear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_relationship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_row_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_row_insert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\table_sort.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_blue_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_blue_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_blue_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tag_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\telephone_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\television.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\television_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\television_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_align_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_align_justify.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_align_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_align_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_allcaps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_columns.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_dropcaps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_heading_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_heading_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_heading_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_heading_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_heading_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_heading_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_horizontalrule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_indent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_indent_remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_italic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_kerning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_letter_omega.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_letterspacing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_linespacing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_list_bullets.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_list_numbers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_lowercase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_padding_bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_padding_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_padding_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_padding_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_replace.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_signature.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_smallcaps.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_strikethrough.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_subscript.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_superscript.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_underline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\text_uppercase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\textfield.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\textfield_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\textfield_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\textfield_key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\textfield_rename.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\thumb_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\thumb_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\time_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\time_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\time_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\timeline_marker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\transmit_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\tux.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_comment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_female.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\user_suit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vcard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vcard_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vcard_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vcard_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vector.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vector_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\vector_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\wand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weather_clouds.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weather_cloudy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weather_lightning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weather_rain.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weather_snow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\weather_sun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\webcam.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\webcam_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\webcam_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\webcam_error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\world.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\world_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\world_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\world_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\world_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\world_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\wrench_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\xhtml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\xhtml_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\xhtml_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\xhtml_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\xhtml_valid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_top.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icons\resultset_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coffee-128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OCaff.Framework\OCaff.Framework.csproj">
+      <Project>{1608C71A-3D6C-4224-83C9-CFAB312CA7F7}</Project>
+      <Name>OCaff.Framework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Coffee.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

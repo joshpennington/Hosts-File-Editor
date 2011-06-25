@@ -1,0 +1,32 @@
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.Tests.dll
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.Tests.pdb
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.exe
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\nunit.framework.dll
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\nunit.mocks.dll
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\OCaff.Framework.dll
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.pdb
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.xml
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\nunit.framework.xml
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\OCaff.Framework.pdb
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\OCaff.Framework.xml
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\HostsFileEditor.Tests.dll
+C:\Users\josh\Documents\My Dropbox\Projects\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\HostsFileEditor.Tests.pdb
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\HostsFileEditor.Tests.Properties.Resources.resources
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\HostsFileEditor.Tests.dll
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\obj\Debug\HostsFileEditor.Tests.pdb
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.Tests.dll
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.Tests.pdb
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.exe
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\NMock3.dll
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\nunit.framework.dll
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\nunit.mocks.dll
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\OCaff.Framework.dll
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.pdb
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\HostsFileEditor.xml
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\nunit.framework.xml
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\OCaff.Framework.pdb
+C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor.Tests\bin\Debug\OCaff.Framework.xml
