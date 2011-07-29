@@ -53,3 +53,7 @@ C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor\obj\x86\Debug\HostsFileEdi
 C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Josh\Dropbox\HostsFileEditor\HostsFileEditor\bin\Debug\HostsFileEditor.XML
+C:\Users\josh\Documents\Visual Studio 2010\Projects\Hosts-File-Editor\HostsFileEditor\bin\Debug\HostsFileEditor.exe.config
+C:\Users\josh\Documents\Visual Studio 2010\Projects\Hosts-File-Editor\HostsFileEditor\bin\Debug\HostsFileEditor.XML
+C:\Users\josh\Documents\Visual Studio 2010\Projects\Hosts-File-Editor\HostsFileEditor\obj\x86\Debug\HostsFileEditor.exe
+C:\Users\josh\Documents\Visual Studio 2010\Projects\Hosts-File-Editor\HostsFileEditor\obj\x86\Debug\HostsFileEditor.pdb
