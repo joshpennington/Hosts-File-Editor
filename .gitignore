@@ -1,1 +1,8 @@
 **/obj/*
+**/bin/*
+_ReSharper.*
+*.[Rr]e[Ss]harper
+[Tt]humbs.db
+*.user
+*.suo
+*.[Cc]ache
