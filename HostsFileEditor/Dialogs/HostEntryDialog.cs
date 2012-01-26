@@ -19,7 +19,7 @@ namespace HostsFileEditor.Dialogs
         /// Initializes a new instance of the <see cref="HostEntryDialog"/> class.
         /// </summary>
         internal HostEntryDialog()
-            : this(string.Empty, string.Empty)
+                : this(new IPAddress(new byte[] { 127, 0, 0, 1 }), string.Empty)
         {
         }
 
@@ -107,5 +107,10 @@ namespace HostsFileEditor.Dialogs
         }
 
         #endregion
+
+        private void HostEntryDialog_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Security.Principal;
 using System.Windows.Forms;
 
@@ -82,7 +83,7 @@ namespace HostsFileEditor.Forms.Main
 
             if (newEntry.Completed)
             {
-                this.Lines.Add(newEntry.IpAddress + '\t' + newEntry.Domain);
+                this.Lines.Add(newEntry.IpAddress.ToString() + '\t' + newEntry.Domain);
                 this.Publish();
                 return (this.Lines.Count - 1).Minimum(0);
             }
@@ -141,12 +142,12 @@ namespace HostsFileEditor.Forms.Main
             var selectedSplit = this.Lines[selectedIndex].Split(new[] { '\t' }, StringSplitOptions.RemoveEmptyEntries);
             if (selectedSplit.Length == 2)
             {
-                var editEntry = new HostEntryDialog(selectedSplit[0].Trim(), selectedSplit[1].Trim());
+                var editEntry = new HostEntryDialog(IPAddress.Parse(selectedSplit[0].Trim()), selectedSplit[1].Trim());
                 editEntry.ShowDialog();
 
                 if (editEntry.Completed)
                 {
-                    this.Lines[selectedIndex] = editEntry.IpAddress + '\t' + editEntry.Domain;
+                    this.Lines[selectedIndex] = editEntry.IpAddress.ToString() + '\t' + editEntry.Domain;
                     this.Publish();
                 }
             }

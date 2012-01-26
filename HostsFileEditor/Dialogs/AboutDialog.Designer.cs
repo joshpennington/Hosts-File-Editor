@@ -1,6 +1,9 @@
 ﻿namespace HostsFileEditor.Dialogs
 {
-    partial class AboutDialog
+    /// <summary>
+    /// An about dialog
+    /// </summary>
+    public partial class AboutDialog
     {
         /// <summary>
         /// Required designer variable.

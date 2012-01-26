@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
@@ -8,7 +7,7 @@ using OCaff.Framework;
 
 namespace HostsFileEditor.Dialogs
 {
-    internal partial class AboutDialog : DialogBase
+    public partial class AboutDialog : DialogBase
     {
         #region ----------- Constructor ------------
 
@@ -20,7 +19,7 @@ namespace HostsFileEditor.Dialogs
             this.InitializeComponent();
             this.Text = string.Format("About {0}", this.AssemblyTitle);
             this.labelProductName.Text = this.AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", this.AssemblyVersion);
+            this.labelVersion.Text = string.Format("Version {0}", this.AssemblyVersion);
             this.labelCopyright.Text = this.AssemblyCopyright;
             this.labelCompanyName.Text = this.AssemblyCompany;
             this.textBoxDescription.Text = this.AssemblyDescription;
