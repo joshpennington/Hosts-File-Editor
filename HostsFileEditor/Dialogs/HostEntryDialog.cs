@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 using HostsFileEditor.Properties;
@@ -110,7 +111,16 @@ namespace HostsFileEditor.Dialogs
 
         private void HostEntryDialog_Load(object sender, EventArgs e)
         {
+        }
 
+        private void txtIpAddress_TextChanged(object sender, EventArgs e)
+        {
+            const string pattern = @"\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b";
+
+            if (Regex.IsMatch(txtIpAddress.Text, pattern))
+            {
+                
+            }
         }
     }
 }

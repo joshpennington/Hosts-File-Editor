@@ -33,8 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDomain = new System.Windows.Forms.TextBox();
-            this.txtIpAddress = new System.Windows.Forms.MaskedTextBox();
-            this.ipAddressInputBox1 = new OCaff.Framework.IPAddressInputBox();
+            this.txtIpAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnOk
@@ -89,17 +88,11 @@
             // 
             // txtIpAddress
             // 
-            this.txtIpAddress.Location = new System.Drawing.Point(76, 35);
+            this.txtIpAddress.Location = new System.Drawing.Point(77, 33);
             this.txtIpAddress.Name = "txtIpAddress";
-            this.txtIpAddress.Size = new System.Drawing.Size(209, 20);
-            this.txtIpAddress.TabIndex = 6;
-            // 
-            // ipAddressInputBox1
-            // 
-            this.ipAddressInputBox1.Location = new System.Drawing.Point(76, 107);
-            this.ipAddressInputBox1.Name = "ipAddressInputBox1";
-            this.ipAddressInputBox1.Size = new System.Drawing.Size(186, 29);
-            this.ipAddressInputBox1.TabIndex = 7;
+            this.txtIpAddress.Size = new System.Drawing.Size(208, 20);
+            this.txtIpAddress.TabIndex = 8;
+            this.txtIpAddress.TextChanged += new System.EventHandler(this.txtIpAddress_TextChanged);
             // 
             // HostEntryDialog
             // 
@@ -107,8 +100,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(297, 250);
-            this.Controls.Add(this.ipAddressInputBox1);
+            this.ClientSize = new System.Drawing.Size(297, 96);
             this.Controls.Add(this.txtIpAddress);
             this.Controls.Add(this.txtDomain);
             this.Controls.Add(this.label2);
@@ -130,7 +122,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDomain;
-        private System.Windows.Forms.MaskedTextBox txtIpAddress;
-        private OCaff.Framework.IPAddressInputBox ipAddressInputBox1;
+        private System.Windows.Forms.TextBox txtIpAddress;
     }
 }
