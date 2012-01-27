@@ -101,9 +101,10 @@ namespace HostsFileEditor.Dialogs
 
         public override void PublishingCompleted()
         {
+            const string pattern = @"\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b";
             bool domainIsValid = !string.IsNullOrWhiteSpace(this.txtDomain.Text);
-            bool addressIsValid = !string.IsNullOrWhiteSpace(this.txtIpAddress.Text);
-
+            bool addressIsValid = !string.IsNullOrWhiteSpace(this.txtIpAddress.Text) && Regex.IsMatch(txtIpAddress.Text, pattern);
+            
             this.btnOk.Enabled = domainIsValid && addressIsValid;
         }
 
@@ -115,12 +116,7 @@ namespace HostsFileEditor.Dialogs
 
         private void txtIpAddress_TextChanged(object sender, EventArgs e)
         {
-            const string pattern = @"\b(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b";
-
-            if (Regex.IsMatch(txtIpAddress.Text, pattern))
-            {
-                
-            }
+            this.PublishingCompleted();
         }
     }
 }
