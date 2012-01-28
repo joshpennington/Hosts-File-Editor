@@ -117,6 +117,12 @@ namespace HostsFileEditor.Dialogs
         private void txtIpAddress_TextChanged(object sender, EventArgs e)
         {
             this.PublishingCompleted();
+
+            //IPAddress ipAddress;
+            //if (IPAddress.TryParse(txtIpAddress.Text, out ipAddress))
+            //{
+            //    txtIpAddress.Text = ipAddress.ToString();
+            //}
         }
     }
 }
